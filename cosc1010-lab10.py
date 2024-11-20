@@ -3,7 +3,7 @@
 # Submission Date 11/20/2024
 # Lab 10
 # Lab Section: 15
-# Sources, people worked with, help given to: 
+# Sources, people worked with, help given to: Lee Huber, Emmanuel TA
 # your
 # comments
 # here
