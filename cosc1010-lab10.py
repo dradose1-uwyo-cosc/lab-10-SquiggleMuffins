@@ -30,45 +30,42 @@ def get_hash(to_hash):
 #   - You can use the provided `get_hash()` function to generate the hashes.
 #   - Be careful, as "hello" and "hello " would generate a different hash.
 
-from pathlib import Path
 
-def files():
-    rock = Path('rockyou.txt')
-    has = Path('hash')
-
-
+rock = Path('rockyou.txt')
+has = Path('hash')
 
 
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
 
+
 try:
     with open(has, 'r') as hashf:
-        rhas = hashf.read().strip()
+        rhas = hashf.read()
 
 except FileNotFoundError:
         print("Error: 'hash' file not found.")
-        return
 
 try:
-    with open(rock,'r', encoding='utf-8', errors='ignore') as rockf:
-        pwords = rock.readlines()
+    with open(rock,'r', encoding='utf-8') as rockf:
+        pwords = rockf.readlines()
 
 except FileNotFoundError:
     print("File not found.")
-    return
 
 else:
     for pword in pwords:
-        pword =  pword.strip()
-        hashedp = get_hash(pword) 
+        pword =  pword[:-1]
+        hashedp = get_hash(pword)
 
-    if hashedp == rhas:
-        print(f"Password cracked: {pword}")
-        break
+        if hashedp == rhas:
+            print(f"Password cracked: {pword}")
+            break
     
-    else:
-        print("Error finding password")
+    
+        else:
+            print("Error finding password")
+    
 
 # - Read in the value stored within `hash`.
 #   - You must use a try and except block.
